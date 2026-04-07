@@ -63,3 +63,9 @@ def dot(a, b):
     """
     a, b, _, _ = prepare_vectors(a, b)
     return sum(x * y for x, y in zip(a, b))
+
+def norm(a):
+    """
+    Computes Euclidean norm (magnitude) of a vector.
+    """
+    return dot(a, a) ** 0.5
