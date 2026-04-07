@@ -86,3 +86,15 @@ def outer(a, b):
             result[i][j] = a[i] * b[j]
 
     return result
+
+def cross(a, b):
+    a, b, _, _ = prepare_vectors(a, b)
+
+    if len(a) != 3 or len(b) != 3:
+        raise ValueError("Cross product is only valid for 3D vectors")
+
+    return [
+        a[1]*b[2] - a[2]*b[1],
+        a[2]*b[0] - a[0]*b[2],
+        a[0]*b[1] - a[1]*b[0]
+    ]
