@@ -69,3 +69,20 @@ def norm(a):
     Computes Euclidean norm (magnitude) of a vector.
     """
     return dot(a, a) ** 0.5
+
+def hadamard(a, b):
+    a, b, _, _ = prepare_vectors(a, b)
+    return [x*y for x,y in zip(a,b)]
+
+def outer(a, b):
+    a, _ = normalize(a)
+    b, _ = normalize(b)
+
+    rows, cols = len(a), len(b)
+    result = [[0 for _ in range(cols)] for _ in range(rows)]
+
+    for i in range(rows):
+        for j in range(cols):
+            result[i][j] = a[i] * b[j]
+
+    return result
